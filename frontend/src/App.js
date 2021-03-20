@@ -1,11 +1,13 @@
-import * as React from 'react';
+import * as React from "react";
+import Navbar from "./component/navbar/Navbar";
+import Home from "./pages/home/Home";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Mobile Market</h1>
-      {/*Add your code here*/}
-    </div>
+    <>
+      <Navbar />
+      <Home />
+    </>
   );
 }
 
