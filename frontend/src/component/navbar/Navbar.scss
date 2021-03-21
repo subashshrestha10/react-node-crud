@@ -1,20 +1,35 @@
 nav {
-    height: 40px;
-    width: 100%;
-    box-shadow: 1px 1px 5px #0000006b;
-}
+  height: 40px;
+  width: 100%;
+  box-shadow: 1px 1px 5px #00000038;
 
-nav .nav-container {
-  align-items: center;
-  display: flex;
-  height: inherit;
-  justify-content: space-between;
-  max-width: 1032px;
-  margin: 0 auto;
-}
+  .nav-container {
+    align-items: center;
+    display: flex;
+    height: inherit;
+    justify-content: space-between;
+    max-width: 1032px;
+    margin: 0 auto;
 
-nav .nav-container img {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
+    .link-nav {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+      }
+
+      a {
+        color: gray;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: none;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
 }
