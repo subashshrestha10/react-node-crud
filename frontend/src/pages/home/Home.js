@@ -1,8 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import MobileList from "../../component/mobile-list/MobileList";
 import './Home.scss';
-
-import { connect } from "react-redux";
 
 function Home() {
   return (
@@ -13,14 +13,6 @@ function Home() {
     </div>
   );
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     addToCart: (mobile) => {
-//       dispatch({ type: "ADD_TO_CART", mobile });
-//     },
-//   };
-// };
 
 const mapStateToProps = (state) => {
   return {

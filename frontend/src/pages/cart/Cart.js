@@ -1,9 +1,9 @@
 import React from "react";
 import { Empty } from "antd";
-import "./Cart.scss";
-import CurrencyFormat from "react-currency-format";
-
 import { connect } from "react-redux";
+
+import "./Cart.scss";
+import NepaliCurrency from "../../component/nepaly-currency-format/NepaliCurrency";
 
 function Cart(props) {
   const totalItem = props.mobiles;
@@ -17,7 +17,7 @@ function Cart(props) {
         <div className="row w-100">
           <div className="col-12">
             <div className="cart">
-              {totalItem.length && (
+              {totalItem.length > 0 && (
                 <div className="cart-header row">
                   <div className="item-details text-center col-md-3">
                     Description
@@ -32,7 +32,7 @@ function Cart(props) {
                   </div>
                 </div>
               )}
-              {totalItem.length &&
+              {totalItem.length > 0 &&
                 totalItem.map((item) => (
                   <div className="cart-body row mt-3" key={item.id}>
                     <div className="item-details col-12 col-sm-3 col-md-3">
@@ -51,35 +51,19 @@ function Cart(props) {
                           {item.name}
                         </div>
                         <div className="d-flex align-items-center item-price col-md-2">
-                          <CurrencyFormat
-                            value={item.price}
-                            displayType="text"
-                            decimalScale={2}
-                            fixedDecimalScale={true}
-                            thousandSeparator={true}
-                            prefix="RS "
-                            thousandSpacing="2s"
-                          />
+                          <NepaliCurrency price={item.price} />
                         </div>
                         <div className="d-flex align-items-center item-quantity col-md-2">
                           {"x" + item.quantity}
                         </div>
                         <div className="d-flex align-items-center item-total col-md-3">
-                          <CurrencyFormat
-                            value={item.price * item.quantity}
-                            displayType="text"
-                            decimalScale={2}
-                            fixedDecimalScale={true}
-                            thousandSeparator={true}
-                            prefix="RS "
-                            thousandSpacing="2s"
-                          />
+                          <NepaliCurrency price={item.price * item.quantity} />
                         </div>
                       </div>
                     </div>
                   </div>
                 ))}
-              {totalItem.length && (
+              {totalItem.length > 0 && (
                 <div className="grand-total">Grand Total: {grandTotal}</div>
               )}
 

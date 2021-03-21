@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { FilterOutlined } from "@ant-design/icons";
-import CurrencyFormat from "react-currency-format";
 import { Dropdown, Slider, Button } from "antd";
 
-import './PriceFilter.scss'
+import "./PriceFilter.scss";
+import NepaliCurrency from "../nepaly-currency-format/NepaliCurrency";
 
 export default function PriceFilter({ applyFilter, resetFilter }) {
   let [range, setRange] = useState([0, 1000]);
@@ -65,25 +65,9 @@ export default function PriceFilter({ applyFilter, resetFilter }) {
       {isFilterApplied && (
         <div className="filtering-tag">
           {"Filter By Price: "}
-          <CurrencyFormat
-            value={range[0]}
-            displayType="text"
-            decimalScale={2}
-            fixedDecimalScale={true}
-            thousandSeparator={true}
-            prefix="RS "
-            thousandSpacing="2s"
-          />
+          <NepaliCurrency price={range[0]} />
           {" - "}
-          <CurrencyFormat
-            value={range[1]}
-            displayType="text"
-            decimalScale={2}
-            fixedDecimalScale={true}
-            thousandSeparator={true}
-            prefix="RS "
-            thousandSpacing="2s"
-          />{" "}
+          <NepaliCurrency price={range[1]} />{" "}
           <span className="cursor-pointer" onClick={reset}>
             X
           </span>

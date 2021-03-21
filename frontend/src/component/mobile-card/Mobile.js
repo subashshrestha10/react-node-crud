@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Modal, Button, Divider } from "antd";
-import CurrencyFormat from "react-currency-format";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
-import "./Mobile.scss";
-
 import { connect } from "react-redux";
+
+import "./Mobile.scss";
+import NepaliCurrency from "../nepaly-currency-format/NepaliCurrency";
 
 function Mobile({ mobile, addToCart }) {
   const [isAddCartModalVisible, setIsAddCartModalVisible] = useState(false);
@@ -52,15 +52,7 @@ function Mobile({ mobile, addToCart }) {
         <div className="mobile-info">
           <div className="title">{mobile.name}</div>
           <div className="price">
-            <CurrencyFormat
-              value={mobile.price}
-              displayType="text"
-              decimalScale={2}
-              fixedDecimalScale={true}
-              thousandSeparator={true}
-              prefix="RS "
-              thousandSpacing="2s"
-            />
+            <NepaliCurrency price={mobile.price} />
           </div>
           <div className="stock mt-2">
             {mobile.inStock ? "In Stock" : "Out of Stock"}
@@ -98,15 +90,7 @@ function Mobile({ mobile, addToCart }) {
                 <div className="col-6">
                   <div className="add-cart-title">{mobile.name}</div>
                   <div className="add-cart-price">
-                    <CurrencyFormat
-                      value={mobile.price}
-                      displayType="text"
-                      decimalScale={2}
-                      fixedDecimalScale={true}
-                      thousandSeparator={true}
-                      prefix="RS "
-                      thousandSpacing="2s"
-                    />
+                    <NepaliCurrency price={mobile.price} />
                   </div>
                   <Divider />
                   <div className="quantity">
@@ -152,10 +136,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const mapStateToProps = (state) => {
-  return {
-    mobiles: state.mobiles,
-  };
-};
-
-export default connect(null,mapDispatchToProps)(Mobile);
+export default connect(null, mapDispatchToProps)(Mobile);

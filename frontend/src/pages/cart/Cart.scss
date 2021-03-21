@@ -1,12 +1,4 @@
-@mixin mobile-image-view {
-  height: calc(100% - 150px);
-  text-align: center;
-  padding: 10px 0;
-
-  img {
-    height: 100%;
-  }
-}
+@import "../../core/scss/mixins";
 
 .cart-container {
   height: 160px;
@@ -20,15 +12,14 @@
 }
 
 .cart-header {
-    background: #f0f0f0;
-    padding: 5px;
-    border-radius: 5px;
-
+  background: #f0f0f0;
+  padding: 5px;
+  border-radius: 5px;
 }
 .cart-body {
-    padding: 5px;
-    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.185);
-    border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.185);
+  border-radius: 5px;
 }
 
 .grand-total {
@@ -38,8 +29,7 @@
 }
 
 @media (max-width: 768px) {
-  .cart-header{
+  .cart-header {
     display: none !important;
   }
 }
-

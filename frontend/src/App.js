@@ -1,13 +1,14 @@
 import * as React from "react";
 import Navbar from "./component/navbar/Navbar";
-import Home from "./pages/home/Home";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
+
 import Cart from "./pages/cart/Cart";
+import Home from "./pages/home/Home";
 
 function App() {
   return (

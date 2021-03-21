@@ -1,0 +1,9 @@
+@mixin mobile-image-view {
+  height: calc(100% - 150px);
+  text-align: center;
+  padding: 10px 0;
+
+  img {
+    height: 100%;
+  }
+}

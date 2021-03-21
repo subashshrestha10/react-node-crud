@@ -1,13 +1,13 @@
 import React from "react";
-import "./Navbar.scss";
-import logo from "../../logo.jpeg";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Badge } from "antd";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-function Navbar(props) {
+import "./Navbar.scss";
+import logo from "../../logo.jpeg";
 
+function Navbar(props) {
   const totalItem = props.mobiles.reduce((acc,cur)=>{
     return acc + cur.quantity
   },0)

@@ -1,12 +1,4 @@
-@mixin mobile-image-view {
-  height: calc(100% - 150px);
-  text-align: center;
-  padding: 10px 0;
-
-  img {
-    height: 100%;
-  }
-}
+@import "../../core/scss/mixins";
 
 .card {
   display: flex;
@@ -81,7 +73,7 @@
   }
 
   .disabled {
-    opacity: .4;
+    opacity: 0.4;
     cursor: not-allowed;
   }
 }
