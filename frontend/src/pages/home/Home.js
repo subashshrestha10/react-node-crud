@@ -4,7 +4,7 @@ import './Home.scss';
 
 export default function Home() {
   return (
-    <div className="home mt-3">
+    <div className="home">
       <div className="content">
         <MobileList />
       </div>

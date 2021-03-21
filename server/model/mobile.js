@@ -30,7 +30,7 @@ function buildMobile() {
     id: faker.random.uuid(),
     name: buildMobileName(),
     date: faker.date.past(),
-    price: faker.commerce.price(),
+    price: faker.commerce.price(5000, 99999, 0),
     inStock: faker.random.boolean(),
     image: IMAGE_URL[Math.floor(Math.random() * 6)],
   };

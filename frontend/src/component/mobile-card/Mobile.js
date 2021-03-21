@@ -9,7 +9,6 @@ export default function Mobile({ mobile }) {
   const [numberOfItem, setnumberOfItem] = useState(1);
 
   const showAddCartModal = () => {
-    debugger;
     setIsAddCartModalVisible(true);
   };
 
@@ -51,9 +50,16 @@ export default function Mobile({ mobile }) {
               thousandSpacing="2s"
             />
           </div>
-          <div className="stock mt-2">In Stock</div>
+          <div className="stock mt-2">
+            {mobile.inStock ? "In Stock" : "Out of Stock"}
+          </div>
           <div className="d-flex justify-content-center mt-2">
-            <Button type="primary" danger onClick={showAddCartModal}>
+            <Button
+              type="primary"
+              danger
+              onClick={showAddCartModal}
+              disabled={!mobile.inStock}
+            >
               Add To Cart
             </Button>
           </div>

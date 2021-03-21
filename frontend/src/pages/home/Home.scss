@@ -1,10 +1,15 @@
 .home {
   width: 100%;
-}
+  background: #f5f5f5;
+  padding: 20px 0;
 
-.home .content {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1032px;
-  margin: 0 auto;
+  .content {
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1032px;
+    margin: 0 auto;
+    padding: 10px 20px;
+  }
 }
