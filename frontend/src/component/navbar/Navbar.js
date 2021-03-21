@@ -4,8 +4,14 @@ import logo from "../../logo.jpeg";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Badge } from "antd";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default function Navbar() {
+function Navbar(props) {
+
+  const totalItem = props.mobiles.reduce((acc,cur)=>{
+    return acc + cur.quantity
+  },0)
+
   return (
     <nav>
       <div className="nav-container">
@@ -14,7 +20,7 @@ export default function Navbar() {
           <Link to="/home"><span>Home</span></Link>
         </div>
         <Link to="/cart">
-          <Badge count={5} size="small">
+          <Badge count={totalItem} size="small">
             <ShoppingCartOutlined className="cursor-pointer" />
           </Badge>
         </Link>
@@ -22,3 +28,11 @@ export default function Navbar() {
     </nav>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    mobiles: state.mobiles
+  };
+};
+
+export default connect(mapStateToProps)(Navbar)

@@ -4,7 +4,9 @@ import CurrencyFormat from "react-currency-format";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import "./Mobile.scss";
 
-export default function Mobile({ mobile }) {
+import { connect } from "react-redux";
+
+function Mobile({ mobile, addToCart }) {
   const [isAddCartModalVisible, setIsAddCartModalVisible] = useState(false);
   const [numberOfItem, setnumberOfItem] = useState(1);
 
@@ -18,6 +20,16 @@ export default function Mobile({ mobile }) {
 
   const closeAddCartModal = () => {
     setIsAddCartModalVisible(false);
+  };
+
+  const addMobileToCart = () => {
+    let data = {
+      ...mobile,
+      quantity: numberOfItem,
+    };
+    addToCart(data);
+    setIsAddCartModalVisible(false);
+    setnumberOfItem(0);
   };
 
   const plusMinus = (flag) => {
@@ -118,7 +130,7 @@ export default function Mobile({ mobile }) {
                   <Divider />
                   <div className="add-cart-action-button">
                     <Button onClick={closeAddCartModal}>Cancel</Button>
-                    <Button type="primary" danger onClick={showAddCartModal}>
+                    <Button type="primary" danger onClick={addMobileToCart}>
                       Add To Cart
                     </Button>
                   </div>
@@ -131,3 +143,19 @@ export default function Mobile({ mobile }) {
     </>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (mobile) => {
+      dispatch({ type: "ADD_TO_CART", mobile });
+    },
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    mobiles: state.mobiles,
+  };
+};
+
+export default connect(null,mapDispatchToProps)(Mobile);
